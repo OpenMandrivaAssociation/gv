@@ -15,7 +15,7 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	ImageMagick
 BuildRequires:	X11-devel
 BuildRequires:	glibc-devel
-BuildRequires:	libXaw3d-devel
+BuildRequires:	Xaw3d-devel
 BuildRequires:	libice-devel
 BuildRequires:	libsm-devel
 BuildRequires:	libx11-devel
