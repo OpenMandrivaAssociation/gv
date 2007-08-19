@@ -1,5 +1,5 @@
 Name:		gv
-Version:	3.6.2
+Version:	3.6.3
 Release:	%mkrel 1
 Summary:	An enhanced front-end for the ghostscript PostScript(TM) interpreter
 License:	GPL
@@ -9,14 +9,11 @@ URL:		http://www.gnu.org/software/gv/
 Source0:	ftp://ftp.gnu.org/gnu/%{name}/%{name}-%{version}.tar.gz
 Source1:	ftp://ftp.gnu.org/gnu/%{name}/%{name}-%{version}.tar.gz.sig
 Source11:	%{name}.png
-# (mrl) Bug #27209
-Patch1:		gv-CVE-2006-5864-better.patch
-Patch6:		gv-3.6.1-gvuncompress.patch
+Patch6:		gv-3.6.3-gvuncompress.patch
 Patch8:		gv-3.6.1-align.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	ImageMagick
 BuildRequires:	X11-devel
-BuildRequires:	desktop-file-utils
 BuildRequires:	glibc-devel
 BuildRequires:	libXaw3d-devel
 BuildRequires:	libice-devel
@@ -42,7 +39,6 @@ installed, as well as the X Window System.
 
 %prep
 %setup -q
-%patch1 -p0 -b .CVE-2006-5864
 %patch6 -p1 -b .gvuncompress
 %patch8 -p1 -b .align
 
@@ -66,21 +62,6 @@ install -m644 %{SOURCE11} -D %{buildroot}%{_liconsdir}/gv.png
 convert -geometry 32x32 %{SOURCE11} %{buildroot}%{_iconsdir}/gv.png
 convert -geometry 16x16 %{SOURCE11} %{buildroot}%{_miconsdir}/gv.png
 
-mkdir -p %{buildroot}%{_menudir}
-cat <<EOF >%{buildroot}%{_menudir}/%{name}
-?package(%{name}): \
- command="%{_bindir}/gv" \
- icon="gv.png" \
- needs="x11" \
- section="Office/Publishing" \
- title="GhostView" \
-%if %{mdkversion} >= 200610
- xdg=true \
-%endif
- longtitle="PostScript and PDF document viewer"
-EOF
-
-%if %{mdkversion} >= 200610
 mkdir -p %{buildroot}%{_datadir}/applications
 cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop << EOF
 [Desktop Entry]
@@ -90,16 +71,9 @@ Exec=%{_bindir}/gv %f
 Icon=gv
 Terminal=false
 Type=Application
-Categories=X-MandrivaLinux-Office-Publishing;Graphics;Office;Viewer;
+Categories=Office;Viewer;
 Encoding=UTF-8
 EOF
-
-desktop-file-install --vendor="" \
-  --remove-category="Application" \
-  --add-category="Office" \
-  --add-category="X-MandrivaLinux-Office-Publishing" \
-  --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
-%endif
 
 %clean
 rm -rf %{buildroot}
@@ -121,12 +95,7 @@ rm -rf %{buildroot}
 %{_libdir}/%{name}
 %{_mandir}/man1/*
 %{_infodir}/*
-%{_menudir}/%{name}
 %{_miconsdir}/%{name}.png
 %{_iconsdir}/%{name}.png
 %{_liconsdir}/%{name}.png
-%if %{mdkversion} >= 200610
 %{_datadir}/applications/*
-%endif
-
-
