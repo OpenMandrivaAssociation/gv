@@ -1,6 +1,6 @@
 Name:		gv
 Version:	3.6.3
-Release:	%mkrel 1
+Release:	%mkrel 2
 Summary:	An enhanced front-end for the ghostscript PostScript(TM) interpreter
 License:	GPL
 Group:		Publishing
@@ -24,6 +24,7 @@ BuildRequires:	libxmu-devel
 BuildRequires:	libxpm-devel
 BuildRequires:	libxt-devel
 BuildRequires:	xpm-devel
+BuildRequires:	texinfo
 Obsoletes:	ghostview
 Provides:	ghostview
 Requires:	ghostscript-module-X
