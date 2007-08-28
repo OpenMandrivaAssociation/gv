@@ -73,7 +73,6 @@ Icon=gv
 Terminal=false
 Type=Application
 Categories=Office;Viewer;
-Encoding=UTF-8
 EOF
 
 %clean
