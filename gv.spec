@@ -11,7 +11,6 @@ Source1:	ftp://ftp.gnu.org/gnu/%{name}/%{name}-%{version}.tar.gz.sig
 Source11:	%{name}.png
 Patch6:		gv-3.6.3-gvuncompress.patch
 Patch8:		gv-3.6.1-align.patch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	ImageMagick
 BuildRequires:	X11-devel
 BuildRequires:	glibc-devel
