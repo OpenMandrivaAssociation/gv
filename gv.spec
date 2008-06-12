@@ -79,14 +79,18 @@ EOF
 rm -rf %{buildroot}
 
 %post
+%if %mdkversion < 200900
 %{update_menus}
+%endif
 %_install_info gv.info
 
 %preun
 %_remove_install_info gv.info
 
+%if %mdkversion < 200900
 %postun
 %{clean_menus}
+%endif
 
 %files
 %defattr(-,root,root)
