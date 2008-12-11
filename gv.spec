@@ -12,7 +12,7 @@ Source11:	%{name}.png
 Patch6:		gv-3.6.3-gvuncompress.patch
 Patch8:		gv-3.6.1-align.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires:	ImageMagick
+BuildRequires:	imagemagick
 BuildRequires:	X11-devel
 BuildRequires:	glibc-devel
 BuildRequires:	Xaw3d-devel
