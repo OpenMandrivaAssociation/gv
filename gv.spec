@@ -1,6 +1,6 @@
 Name:		gv
-Version:	3.6.3
-Release:	%mkrel 4
+Version:	3.6.6
+Release:	%mkrel 1
 Summary:	An enhanced front-end for the ghostscript PostScript(TM) interpreter
 License:	GPL
 Group:		Publishing
@@ -10,7 +10,6 @@ Source0:	ftp://ftp.gnu.org/gnu/%{name}/%{name}-%{version}.tar.gz
 Source1:	ftp://ftp.gnu.org/gnu/%{name}/%{name}-%{version}.tar.gz.sig
 Source11:	%{name}.png
 Patch6:		gv-3.6.3-gvuncompress.patch
-Patch8:		gv-3.6.1-align.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	imagemagick
 BuildRequires:	X11-devel
@@ -32,7 +31,7 @@ Requires:	ghostscript-module-X
 %description
 Gv provides a user interface for the ghostscript PostScript(TM)
 interpreter.  Derived from the ghostview program, gv can display
-PostScript and PDF documents using the X Window System.  
+PostScript and PDF documents using the X Window System.
 
 Install the gv package if you'd like to view PostScript and PDF documents
 on your system.  You'll also need to have the ghostscript package
@@ -41,7 +40,6 @@ installed, as well as the X Window System.
 %prep
 %setup -q
 %patch6 -p1 -b .gvuncompress
-%patch8 -p1 -b .align
 
 %build
 # force regeneration of file
@@ -96,7 +94,7 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %doc AUTHORS COPYING ChangeLog NEWS README
 %{_bindir}/*
-%{_libdir}/%{name}
+%{_datadir}/%{name}
 %{_mandir}/man1/*
 %{_infodir}/*
 %{_miconsdir}/%{name}.png
