@@ -1,5 +1,5 @@
 Name:		gv
-Version:	3.6.8
+Version:	3.7.1
 Release:	%mkrel 1
 Summary:	An enhanced front-end for the ghostscript PostScript(TM) interpreter
 License:	GPL
