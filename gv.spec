@@ -1,6 +1,6 @@
 Name:		gv
 Version:	3.7.1
-Release:	%mkrel 1
+Release:	%mkrel 2
 Summary:	An enhanced front-end for the ghostscript PostScript(TM) interpreter
 License:	GPL
 Group:		Publishing
@@ -12,17 +12,11 @@ Source11:	%{name}.png
 Patch6:		gv-3.6.3-gvuncompress.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	imagemagick
-BuildRequires:	X11-devel
-BuildRequires:	glibc-devel
-BuildRequires:	Xaw3d-devel
-BuildRequires:	libice-devel
-BuildRequires:	libsm-devel
 BuildRequires:	libx11-devel
-BuildRequires:	libxext-devel
+BuildRequires:	Xaw3d-devel
+BuildRequires:	libxinerama-devel
 BuildRequires:	libxmu-devel
-BuildRequires:	libxpm-devel
 BuildRequires:	libxt-devel
-BuildRequires:	xpm-devel
 BuildRequires:	texinfo
 Obsoletes:	ghostview
 Provides:	ghostview
