@@ -1,8 +1,8 @@
 Name:		gv
-Version:	3.7.1
-Release:	%mkrel 4
+Version:	3.7.2
+Release:	%mkrel 1
 Summary:	An enhanced front-end for the ghostscript PostScript(TM) interpreter
-License:	GPL
+License:	GPLv3
 Group:		Publishing
 URL:		http://www.gnu.org/software/gv/
 # old source: ftp://thep.physik.uni-mainz.de/pub/gv/unix/%{name}-%{version}.tar.bz2
@@ -20,7 +20,6 @@ BuildRequires:	texinfo
 Obsoletes:	ghostview
 Provides:	ghostview
 Requires:	ghostscript-module-X
-Patch0:		gv-3.7.1-translation.patch
 Patch1:		gv-3.6.3-gvuncompress.patch
 
 %description
@@ -34,7 +33,6 @@ installed, as well as the X Window System.
 
 %prep
 %setup -q
-%patch0 -p1 -b .gvuncompress
 %patch1 -p1 -b .gvuncompress
 
 %build
