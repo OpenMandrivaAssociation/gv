@@ -1,0 +1,43 @@
+diff -urN gv-3.6.1-orig/gvuncompress gv-3.6.1/gvuncompress
+--- gv-3.6.1-orig/gvuncompress	1970-01-01 08:00:00.000000000 +0800
++++ gv-3.6.1/gvuncompress	2004-12-27 05:56:13.641826680 +0800
+@@ -0,0 +1,28 @@
++#!/bin/sh
++
++# FIXME: $1 and $2 have not been checked properly, they may contain
++# harmful characters such as backquote and semicolon -- Abel
++
++[ -r "$1" ] || exit 1
++
++PATH=/bin:/usr/bin
++
++uncompress=
++
++if [ -x "/bin/file" -o -x "/usr/bin/file" ]; then
++    uncompress=`file "$1" | sed -n "s/.*\(gzip\|bzip2\).*/\1/p; s/.*compress'd.*/gzip/p;"`
++else
++    echo "$1" | grep -q '\.g\?z$\|\.Z$' && uncompress=gzip
++    echo "$1" | grep -q '\.bz2$' && uncompress=bzip2
++fi
++
++[ -z "$uncompress" ] && exit 2
++if [ -z "$2" ]; then
++    exec $uncompress -dc "$1"
++else
++    # make sure destination is clean
++    rm -f "$2"
++    [ -e "$2" ] && exit 3
++    touch "$2"
++    exec $uncompress -dc "$1" > "$2"
++fi
+diff -urN gv-3.6.1-orig/src/file.c gv-3.6.1/src/file.c
+--- gv-3.6.1-orig/src/file.c	2004-12-08 07:37:40.000000000 +0800
++++ gv-3.6.1/src/file.c	2004-12-27 05:37:44.075506400 +0800
+@@ -375,6 +375,7 @@
+   if      (!strncmp(mext,".gz",3))  ext = "";
+   else if (!strncmp(mext,".bz2",4)) ext = "";
+   else if (!strncmp(mext,".z",2))   ext = "";
++  else if (!strncmp(mext,".Z",2))   ext = "";
+   else if (!strncmp(mext,".ps",3))  ext = ".ps";
+   else if (!strncmp(mext,".pdf",4)) ext = ".pdf";
+   else                              ext = e;
