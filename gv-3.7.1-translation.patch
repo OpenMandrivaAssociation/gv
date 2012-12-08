@@ -1,0 +1,10 @@
+--- gv-3.7.1/src/gv_misc_res.dat.orig	2011-03-10 16:59:26.749675000 -0300
++++ gv-3.7.1/src/gv_misc_res.dat	2011-03-10 16:59:54.510675000 -0300
+@@ -476,7 +476,6 @@ GV.control.baseTranslations:#replace		\n
+  <Key>BackSpace:	GV_Page(up,left-bottom,!page-1,bottom-rightedge)\n\
+  <Key>Insert:		GV_Page(page-5)		\n\
+  <Key>Delete:		GV_Page(page+5)		\n\
+- <Key>apLineDel:	GV_Page(page+5)		\n\
+  <Key>Home:		GV_Page(page=0)		\n\
+  <Key>End:		GV_Page(page=99999)	\n\
+  <Key>Prior:		GV_Page(page-1)		\n\
