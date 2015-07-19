@@ -1,7 +1,7 @@
 Summary:	An enhanced front-end for the ghostscript PostScript(TM) interpreter
 Name:		gv
 Version:	3.7.3
-Release:	8
+Release:	9
 License:	GPLv3
 Group:		Publishing
 Url:		http://www.gnu.org/software/gv/
