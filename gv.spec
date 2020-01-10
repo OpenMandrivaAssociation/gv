@@ -34,7 +34,7 @@ installed, as well as the X Window System.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 
 %build
 # force regeneration of file
