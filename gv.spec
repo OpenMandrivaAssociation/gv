@@ -40,13 +40,13 @@ installed, as well as the X Window System.
 # force regeneration of file
 rm -f src/gv_intern_res_unix.dat
 
-%configure2_5x \
+%configure \
 	--with-scratch-dir=~/tmp/ \
 	--enable-scrollbar-code
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 install -m 0755 gvuncompress %{buildroot}%{_bindir}/gvuncompress
 
 # icons
