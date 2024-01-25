@@ -1,12 +1,11 @@
 Summary:	An enhanced front-end for the ghostscript PostScript(TM) interpreter
 Name:		gv
-Version:	3.7.3
-Release:	11
+Version:	3.7.4
+Release:	1
 License:	GPLv3
 Group:		Publishing
 Url:		http://www.gnu.org/software/gv/
 Source0:	ftp://ftp.gnu.org/gnu/%{name}/%{name}-%{version}.tar.gz
-Source1:	ftp://ftp.gnu.org/gnu/%{name}/%{name}-%{version}.tar.gz.sig
 Source11:	%{name}.png
 Patch0:		gv-3.7.3-libXaw3d-1.6.patch
 Patch1:		gv-3.6.3-gvuncompress.patch
