@@ -1,0 +1,12 @@
+diff -up gv-3.7.4/src/ps.c.bbox gv-3.7.4/src/ps.c
+--- gv-3.7.4/src/ps.c.bbox	2012-04-01 16:43:24.000000000 +0200
++++ gv-3.7.4/src/ps.c	2022-10-15 17:55:03.432506829 +0200
+@@ -357,7 +357,7 @@ static int parse_boundingbox(const char
+ 	while (*p == ' ' || *p == '\t')
+ 		p++;
+ 	fury = strtod(p, &pe);
+-	if (*pe != '\n' && *pe != '\0' && *pe != ' ' && *pe != '\t') {
++	if (*pe != '\n'  && *pe != '\r'&& *pe != '\0' && *pe != ' ' && *pe != '\t') {
+ 		return 0;
+ 	}
+ 
