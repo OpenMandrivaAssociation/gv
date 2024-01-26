@@ -36,6 +36,7 @@ installed, as well as the X Window System.
 %autopatch -p1
 
 %build
+autoreconf -vfi
 # force regeneration of file
 rm -f src/gv_intern_res_unix.dat
 
