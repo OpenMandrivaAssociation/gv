@@ -7,8 +7,32 @@ Group:		Publishing
 Url:		http://www.gnu.org/software/gv/
 Source0:	ftp://ftp.gnu.org/gnu/%{name}/%{name}-%{version}.tar.gz
 Source11:	%{name}.png
-#Patch0:		gv-3.7.3-libXaw3d-1.6.patch
-#Patch1:		gv-3.6.3-gvuncompress.patch
+Patch6:         gv-3.6.3-gvuncompress.patch
+# PLD, for wheel mouse
+Patch7:		gv-wheel.patch
+# Fix for https://bugs.gentoo.org/855011
+Patch8:		gv-3.7.4-remove-aliasing-violation.patch
+#
+# Patches from FC (starts from 100)
+# Check for null pointers in resource requests
+# https://savannah.gnu.org/bugs/?38727
+Patch100:       gv-resource.patch
+# Change tab to space in gv_user_res.dat
+# http://savannah.gnu.org/patch/?7998
+Patch101:       gv-dat.patch
+# Support aarch64
+Patch102:       gv-aarch64.patch
+# Fix bounding box recognition
+Patch103:       gv-3.7.4-bounding-box.patch
+# Fix NULL access segfault
+# https://bugzilla.redhat.com/show_bug.cgi?id=1071238
+Patch104:       gv-bug1071238.patch
+# Fix PDF printing
+# https://bugzilla.redhat.com/show_bug.cgi?id=1536211
+Patch105:       gv-bz1536211.patch
+# Fix buffer overflows in resource.c
+# https://savannah.gnu.org/patch/?10096
+Patch106:       gv-3.7.4-overflow.patch
 
 BuildRequires:	imagemagick
 BuildRequires:	texinfo
