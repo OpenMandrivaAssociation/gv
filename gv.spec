@@ -4,7 +4,7 @@ Version:	3.7.3
 Release:	11
 License:	GPLv3
 Group:		Publishing
-Url:		http://www.gnu.org/software/gv/
+Url:		https://www.gnu.org/software/gv/
 Source0:	ftp://ftp.gnu.org/gnu/%{name}/%{name}-%{version}.tar.gz
 Source1:	ftp://ftp.gnu.org/gnu/%{name}/%{name}-%{version}.tar.gz.sig
 Source11:	%{name}.png
