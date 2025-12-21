@@ -11,6 +11,11 @@ Source11:	%{name}.png
 Patch0:		gv-3.7.3-libXaw3d-1.6.patch
 Patch1:		gv-3.6.3-gvuncompress.patch
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	imagemagick
 BuildRequires:	texinfo
 BuildRequires:	Xaw3d-devel
